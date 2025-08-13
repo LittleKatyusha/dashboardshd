@@ -88,7 +88,7 @@ export default function DashboardPage() {
               Welcome back, Admin! 👋
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-blue-100 max-w-2xl">
-              Here's what's happening with your business today. Monitor your key metrics and stay on top of everything.
+              Here&apos;s what&apos;s happening with your business today. Monitor your key metrics and stay on top of everything.
             </p>
           </div>
           <div className="absolute top-0 right-0 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 bg-white/10 rounded-full blur-2xl sm:blur-3xl"></div>
@@ -146,7 +146,6 @@ export default function DashboardPage() {
             </div>
             <div className="bg-white dark:bg-gray-900 rounded-xl sm:rounded-2xl border border-gray-200 dark:border-gray-700 p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow mobile-card">
               <SimpleChart
-                title=""
                 data={salesData}
                 color="#3b82f6"
               />

@@ -5,11 +5,11 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { ChevronLeft, ChevronRight, Search, Filter, ArrowUpDown, ArrowUp, ArrowDown } from "lucide-react"
+import { ChevronLeft, ChevronRight, Search, ArrowUpDown, ArrowUp, ArrowDown } from "lucide-react"
 
 interface DataTableProps {
   title: string
-  data: Array<Record<string, any>>
+  data: Array<Record<string, string | number | boolean>>
   columns: Array<{
     key: string
     label: string
@@ -43,7 +43,7 @@ export function DataTable({
     key: string
     direction: 'asc' | 'desc'
   } | null>(null)
-  const [filters, setFilters] = useState<Record<string, string | undefined>>({})
+  const [filters] = useState<Record<string, string | undefined>>({})
   const [activeFilter, setActiveFilter] = useState('all');
 
   // Reset to first page when search or filters change
@@ -53,7 +53,7 @@ export function DataTable({
 
   // Filter data based on search query and filters
   const filteredData = useMemo(() => {
-    let result = data.filter((item) => {
+    const result = data.filter((item) => {
       // Search across all fields
       if (searchQuery) {
         const searchMatch = Object.values(item).some((value) =>
@@ -110,13 +110,7 @@ export function DataTable({
     })
   }
 
-  // Get unique values for filter dropdowns
-  const getUniqueValues = (key: string) => {
-    const values = [...new Set(data.map(item => item[key]))]
-    return values.filter(Boolean).sort()
-  }
-
-  const renderCell = (item: any, column: any) => {
+  const renderCell = (item: Record<string, string | number | boolean>, column: { key: string; label: string }) => {
     const value = item[column.key]
     
     // Special rendering for status fields

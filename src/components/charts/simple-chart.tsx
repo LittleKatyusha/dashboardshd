@@ -1,14 +1,13 @@
 "use client"
 
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart } from "recharts"
+import { XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart } from "recharts"
 
 interface SimpleChartProps {
-  title: string
   data: Array<{ name: string; value: number }>
   color?: string
 }
 
-export function SimpleChart({ title, data, color = "#3b82f6" }: SimpleChartProps) {
+export function SimpleChart({ data, color = "#3b82f6" }: SimpleChartProps) {
   return (
     <div className="w-full">
       <ResponsiveContainer width="100%" height={300}>

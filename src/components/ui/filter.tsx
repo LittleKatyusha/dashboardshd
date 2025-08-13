@@ -17,8 +17,8 @@ interface FilterOption {
 
 interface FilterProps extends React.HTMLAttributes<HTMLDivElement> {
   options: FilterOption[]
-  values: Record<string, any>
-  onValuesChange: (values: Record<string, any>) => void
+  values: Record<string, string | undefined>
+  onValuesChange: (values: Record<string, string | undefined>) => void
   onClear?: () => void
   showClearButton?: boolean
   disabled?: boolean
@@ -37,7 +37,7 @@ const Filter = React.forwardRef<HTMLDivElement, FilterProps>(
   }, ref) => {
     const [isExpanded, setIsExpanded] = React.useState(false)
 
-    const handleValueChange = (key: string, value: any) => {
+    const handleValueChange = (key: string, value: string) => {
       const newValues = { ...values, [key]: value }
       onValuesChange(newValues)
     }

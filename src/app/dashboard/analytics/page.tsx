@@ -113,12 +113,10 @@ export default function AnalyticsPage() {
         {/* Charts */}
         <div className="grid gap-6 md:grid-cols-2">
           <SimpleChart
-            title="Revenue Trend"
             data={salesData}
             color="#10b981"
           />
           <SimpleChart
-            title="User Growth"
             data={userGrowthData}
             color="#3b82f6"
           />
@@ -126,7 +124,6 @@ export default function AnalyticsPage() {
 
         <div className="grid gap-6 md:grid-cols-2">
           <SimpleChart
-            title="Conversion Rate"
             data={conversionData}
             color="#f59e0b"
           />

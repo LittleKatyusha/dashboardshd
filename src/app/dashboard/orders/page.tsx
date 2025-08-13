@@ -1,8 +1,5 @@
 import { DashboardLayout } from "@/components/layout/dashboard-layout"
 import { DataTable } from "@/components/dashboard/data-table"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Eye, Edit, Trash2 } from "lucide-react"
 
 // Mock data untuk demo
 const ordersData = [

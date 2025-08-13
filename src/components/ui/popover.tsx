@@ -44,7 +44,9 @@ const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
 )
 Popover.displayName = "Popover"
 
-interface PopoverTriggerProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface PopoverTriggerProps extends React.HTMLAttributes<HTMLDivElement> {
+  // Extends HTML div attributes
+}
 
 const PopoverTrigger = React.forwardRef<HTMLDivElement, PopoverTriggerProps>(
   ({ className, children, ...props }, ref) => {

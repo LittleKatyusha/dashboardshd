@@ -4,7 +4,9 @@ import * as React from "react"
 import { ChevronRight, Home } from "lucide-react"
 import { cn } from "@/lib/utils"
 
-interface BreadcrumbProps extends React.HTMLAttributes<HTMLElement> {}
+interface BreadcrumbProps extends React.HTMLAttributes<HTMLElement> {
+  // Extends HTML element attributes
+}
 
 const Breadcrumb = React.forwardRef<HTMLElement, BreadcrumbProps>(
   ({ className, children, ...props }, ref) => (
@@ -20,7 +22,9 @@ const Breadcrumb = React.forwardRef<HTMLElement, BreadcrumbProps>(
 )
 Breadcrumb.displayName = "Breadcrumb"
 
-interface BreadcrumbListProps extends React.OlHTMLAttributes<HTMLOListElement> {}
+interface BreadcrumbListProps extends React.OlHTMLAttributes<HTMLOListElement> {
+  // Extends HTML ordered list attributes
+}
 
 const BreadcrumbList = React.forwardRef<HTMLOListElement, BreadcrumbListProps>(
   ({ className, children, ...props }, ref) => (
@@ -35,7 +39,9 @@ const BreadcrumbList = React.forwardRef<HTMLOListElement, BreadcrumbListProps>(
 )
 BreadcrumbList.displayName = "BreadcrumbList"
 
-interface BreadcrumbItemProps extends React.LiHTMLAttributes<HTMLLIElement> {}
+interface BreadcrumbItemProps extends React.LiHTMLAttributes<HTMLLIElement> {
+  // Extends HTML list item attributes
+}
 
 const BreadcrumbItem = React.forwardRef<HTMLLIElement, BreadcrumbItemProps>(
   ({ className, children, ...props }, ref) => (
@@ -85,7 +91,9 @@ const BreadcrumbLink = React.forwardRef<HTMLAnchorElement, BreadcrumbLinkProps>(
 )
 BreadcrumbLink.displayName = "BreadcrumbLink"
 
-interface BreadcrumbPageProps extends React.HTMLAttributes<HTMLSpanElement> {}
+interface BreadcrumbPageProps extends React.HTMLAttributes<HTMLSpanElement> {
+  // Extends HTML span attributes
+}
 
 const BreadcrumbPage = React.forwardRef<HTMLSpanElement, BreadcrumbPageProps>(
   ({ className, children, ...props }, ref) => (

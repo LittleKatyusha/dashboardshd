@@ -126,7 +126,9 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
 )
 Modal.displayName = "Modal"
 
-interface ModalHeaderProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface ModalHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
+  // Extends HTML div attributes
+}
 
 const ModalHeader = React.forwardRef<HTMLDivElement, ModalHeaderProps>(
   ({ className, children, ...props }, ref) => (
@@ -141,7 +143,9 @@ const ModalHeader = React.forwardRef<HTMLDivElement, ModalHeaderProps>(
 )
 ModalHeader.displayName = "ModalHeader"
 
-interface ModalTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {}
+interface ModalTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
+  // Extends HTML heading attributes
+}
 
 const ModalTitle = React.forwardRef<HTMLHeadingElement, ModalTitleProps>(
   ({ className, children, ...props }, ref) => (
@@ -156,7 +160,9 @@ const ModalTitle = React.forwardRef<HTMLHeadingElement, ModalTitleProps>(
 )
 ModalTitle.displayName = "ModalTitle"
 
-interface ModalDescriptionProps extends React.HTMLAttributes<HTMLParagraphElement> {}
+interface ModalDescriptionProps extends React.HTMLAttributes<HTMLParagraphElement> {
+  // Extends HTML paragraph attributes
+}
 
 const ModalDescription = React.forwardRef<HTMLParagraphElement, ModalDescriptionProps>(
   ({ className, children, ...props }, ref) => (
@@ -171,7 +177,9 @@ const ModalDescription = React.forwardRef<HTMLParagraphElement, ModalDescription
 )
 ModalDescription.displayName = "ModalDescription"
 
-interface ModalContentProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface ModalContentProps extends React.HTMLAttributes<HTMLDivElement> {
+  // Extends HTML div attributes
+}
 
 const ModalContent = React.forwardRef<HTMLDivElement, ModalContentProps>(
   ({ className, children, ...props }, ref) => (
@@ -186,7 +194,9 @@ const ModalContent = React.forwardRef<HTMLDivElement, ModalContentProps>(
 )
 ModalContent.displayName = "ModalContent"
 
-interface ModalFooterProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface ModalFooterProps extends React.HTMLAttributes<HTMLDivElement> {
+  // Extends HTML div attributes
+}
 
 const ModalFooter = React.forwardRef<HTMLDivElement, ModalFooterProps>(
   ({ className, children, ...props }, ref) => (

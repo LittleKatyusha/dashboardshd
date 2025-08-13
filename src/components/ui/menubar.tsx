@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Check, ChevronRight, Circle } from "lucide-react"
+import { Check, Circle } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 interface MenubarContextValue {
@@ -19,7 +19,9 @@ function useMenubar() {
   return context
 }
 
-interface MenubarProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface MenubarProps extends React.HTMLAttributes<HTMLDivElement> {
+  // Extends HTML div attributes
+}
 
 const Menubar = React.forwardRef<HTMLDivElement, MenubarProps>(
   ({ className, children, ...props }, ref) => {
@@ -184,7 +186,9 @@ const MenubarLabel = React.forwardRef<HTMLDivElement, MenubarLabelProps>(
 )
 MenubarLabel.displayName = "MenubarLabel"
 
-interface MenubarSeparatorProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface MenubarSeparatorProps extends React.HTMLAttributes<HTMLDivElement> {
+  // Extends HTML div attributes
+}
 
 const MenubarSeparator = React.forwardRef<HTMLDivElement, MenubarSeparatorProps>(
   ({ className, ...props }, ref) => (
@@ -197,7 +201,9 @@ const MenubarSeparator = React.forwardRef<HTMLDivElement, MenubarSeparatorProps>
 )
 MenubarSeparator.displayName = "MenubarSeparator"
 
-interface MenubarShortcutProps extends React.HTMLAttributes<HTMLSpanElement> {}
+interface MenubarShortcutProps extends React.HTMLAttributes<HTMLSpanElement> {
+  // Extends HTML span attributes
+}
 
 const MenubarShortcut = React.forwardRef<HTMLSpanElement, MenubarShortcutProps>(
   ({ className, ...props }, ref) => {

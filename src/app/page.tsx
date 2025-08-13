@@ -8,8 +8,7 @@ import {
   ShoppingCart, 
   Shield, 
   Zap,
-  Star,
-  CheckCircle
+  Star
 } from "lucide-react"
 
 export default function HomePage() {

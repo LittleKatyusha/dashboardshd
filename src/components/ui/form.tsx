@@ -3,7 +3,9 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
 
-interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {}
+interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
+  // Extends HTML form attributes
+}
 
 const Form = React.forwardRef<HTMLFormElement, FormProps>(
   ({ className, children, ...props }, ref) => (
@@ -18,7 +20,9 @@ const Form = React.forwardRef<HTMLFormElement, FormProps>(
 )
 Form.displayName = "Form"
 
-interface FormFieldProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface FormFieldProps extends React.HTMLAttributes<HTMLDivElement> {
+  // Extends HTML div attributes
+}
 
 const FormField = React.forwardRef<HTMLDivElement, FormFieldProps>(
   ({ className, children, ...props }, ref) => (
@@ -54,7 +58,9 @@ const FormLabel = React.forwardRef<HTMLLabelElement, FormLabelProps>(
 )
 FormLabel.displayName = "FormLabel"
 
-interface FormControlProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface FormControlProps extends React.HTMLAttributes<HTMLDivElement> {
+  // Extends HTML div attributes
+}
 
 const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
   ({ className, children, ...props }, ref) => (
@@ -69,7 +75,9 @@ const FormControl = React.forwardRef<HTMLDivElement, FormControlProps>(
 )
 FormControl.displayName = "FormControl"
 
-interface FormDescriptionProps extends React.HTMLAttributes<HTMLParagraphElement> {}
+interface FormDescriptionProps extends React.HTMLAttributes<HTMLParagraphElement> {
+  // Extends HTML paragraph attributes
+}
 
 const FormDescription = React.forwardRef<HTMLParagraphElement, FormDescriptionProps>(
   ({ className, children, ...props }, ref) => (

@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { createContext, useContext, useEffect, useState } from "react"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { TooltipProvider } from "@/components/ui/tooltip"
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet"
 
 import { cn } from "@/lib/utils"
@@ -30,18 +30,14 @@ function useSidebar() {
 
 function SidebarProvider({
   defaultOpen = true,
-  open: openProp,
-  onOpenChange: setOpenProp,
   className,
   style,
   children,
   ...props
 }: React.ComponentProps<"div"> & {
   defaultOpen?: boolean
-  open?: boolean
-  onOpenChange?: (open: boolean) => void
 }) {
-  const [isCollapsed, setIsCollapsed] = useState(!defaultOpen)
+  const [isCollapsed] = useState(!defaultOpen)
   const [isMobile, setIsMobile] = useState(false)
   const [openMobile, setOpenMobile] = useState(false)
 
@@ -86,14 +82,12 @@ function SidebarProvider({
 
 function Sidebar({
   side = "left",
-  variant = "sidebar",
   collapsible = "offcanvas",
   className,
   children,
   ...props
 }: React.ComponentProps<"div"> & {
   side?: "left" | "right"
-  variant?: "sidebar" | "floating" | "inset"
   collapsible?: "offcanvas" | "icon" | "none"
 }) {
   const { isMobile, state, openMobile, setOpenMobile } = useSidebar()

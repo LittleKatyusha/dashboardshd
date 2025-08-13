@@ -21,7 +21,9 @@ function useCommand() {
   return context
 }
 
-interface CommandProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface CommandProps extends React.HTMLAttributes<HTMLDivElement> {
+  // Extends HTML div attributes
+}
 
 const Command = React.forwardRef<HTMLDivElement, CommandProps>(
   ({ className, children, ...props }, ref) => {

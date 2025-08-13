@@ -4,7 +4,7 @@ import React from "react"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 
 interface SimpleDataTableProps {
-  data: Array<Record<string, any>>
+  data: Array<Record<string, string | number | boolean>>
   columns: Array<{
     key: string
     label: string
@@ -14,7 +14,7 @@ interface SimpleDataTableProps {
 }
 
 export function SimpleDataTable({ data, columns, className }: SimpleDataTableProps) {
-  const renderCell = (item: any, column: any) => {
+  const renderCell = (item: Record<string, string | number | boolean>, column: { key: string; label: string; width?: string }) => {
     const value = item[column.key]
     
     // Special rendering for status fields

@@ -1,15 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { 
-  Plus, 
   Users, 
   Package, 
   ShoppingCart, 
   BarChart3, 
   FileText,
   Settings,
-  Download,
   ArrowUpRight
 } from "lucide-react"
 

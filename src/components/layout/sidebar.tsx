@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
@@ -15,13 +14,12 @@ import {
   BarChart3, 
   ShoppingCart,
   Package,
-  CreditCard,
-  Bell,
-  Menu,
-  Sparkles
+  Menu
 } from "lucide-react"
 
-interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
+  // Extends HTML div attributes
+}
 
 export function Sidebar({ className }: SidebarProps) {
   const pathname = usePathname()
@@ -105,7 +103,7 @@ export function Sidebar({ className }: SidebarProps) {
   )
 }
 
-function DesktopSidebar({ routes, pathname }: { routes: any[], pathname: string }) {
+function DesktopSidebar({ routes, pathname }: { routes: Array<{ label: string; icon: React.ComponentType<{ className?: string }>; href: string; color: string; bgColor: string; borderColor: string }>, pathname: string }) {
   return (
     <div className="flex h-full w-full flex-col gap-2 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800">
       <div className="flex h-[70px] items-center border-b border-gray-100 dark:border-gray-800 px-6 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/50 dark:to-indigo-950/50">
@@ -160,7 +158,7 @@ function DesktopSidebar({ routes, pathname }: { routes: any[], pathname: string 
   )
 }
 
-function MobileSidebar({ routes, pathname }: { routes: any[], pathname: string }) {
+function MobileSidebar({ routes, pathname }: { routes: Array<{ label: string; icon: React.ComponentType<{ className?: string }>; href: string; color: string; bgColor: string; borderColor: string }>, pathname: string }) {
   return (
     <div className="flex h-full w-full flex-col gap-2 bg-white dark:bg-gray-900">
       <div className="flex h-[60px] sm:h-[70px] items-center border-b border-gray-100 dark:border-gray-800 px-3 sm:px-4 md:px-6 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/50 dark:to-indigo-950/50">

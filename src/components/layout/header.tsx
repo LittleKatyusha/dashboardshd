@@ -13,7 +13,7 @@ import {
   DropdownMenuSeparator, 
   DropdownMenuTrigger 
 } from "@/components/ui/dropdown-menu"
-import { Bell, Search, Settings, LogOut, User, Crown, Sparkles, Menu } from "lucide-react"
+import { Bell, Search, Settings, LogOut, User, Sparkles, Menu } from "lucide-react"
 
 export function Header() {
   const [searchQuery, setSearchQuery] = useState("")
