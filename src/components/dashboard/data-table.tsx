@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { ChevronLeft, ChevronRight, Search, ArrowUpDown, ArrowUp, ArrowDown } from "lucide-react"
+import styles from "@/styles/components/data-table.module.css"
 
 interface DataTableProps {
   title: string
@@ -117,29 +118,29 @@ export function DataTable({
     if (column.key === "status") {
       if (value === "Completed" || value === "Active" || value === "In Stock") {
         return (
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-300 border border-green-200 dark:border-green-800">
-            <span className="w-1.5 h-1.5 bg-green-400 dark:bg-green-300 rounded-full mr-1.5"></span>
+          <span className={`${styles.statusBadge} ${styles.statusCompleted}`}>
+            <span className={styles.statusDot}></span>
             {value}
           </span>
         )
       } else if (value === "Pending" || value === "Low Stock") {
         return (
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 dark:bg-yellow-900/50 text-yellow-800 dark:text-yellow-300 border border-yellow-200 dark:border-yellow-800">
-            <span className="w-1.5 h-1.5 bg-yellow-400 dark:bg-yellow-300 rounded-full mr-1.5"></span>
+          <span className={`${styles.statusBadge} ${styles.statusPending}`}>
+            <span className={styles.statusDot}></span>
             {value}
           </span>
         )
       } else if (value === "Shipped") {
         return (
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
-            <span className="w-1.5 h-1.5 bg-blue-400 dark:bg-blue-300 rounded-full mr-1.5"></span>
+          <span className={`${styles.statusBadge} ${styles.statusShipped}`}>
+            <span className={styles.statusDot}></span>
             {value}
           </span>
         )
       } else if (value === "Cancelled" || value === "Inactive" || value === "Out of Stock") {
         return (
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-300 border border-red-200 dark:border-red-800">
-            <span className="w-1.5 h-1.5 bg-red-400 dark:bg-red-300 rounded-full mr-1.5"></span>
+          <span className={`${styles.statusBadge} ${styles.statusCancelled}`}>
+            <span className={styles.statusDot}></span>
             {value}
           </span>
         )
@@ -150,22 +151,22 @@ export function DataTable({
     if (column.key === "role") {
       if (value === "Admin") {
         return (
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-300 border border-red-200 dark:border-red-800">
-            <span className="w-1.5 h-1.5 bg-red-400 dark:bg-red-300 rounded-full mr-1.5"></span>
+          <span className={`${styles.statusBadge} ${styles.roleAdmin}`}>
+            <span className={styles.statusDot}></span>
             {value}
           </span>
         )
       } else if (value === "Moderator") {
         return (
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
-            <span className="w-1.5 h-1.5 bg-blue-400 dark:bg-blue-300 rounded-full mr-1.5"></span>
+          <span className={`${styles.statusBadge} ${styles.roleModerator}`}>
+            <span className={styles.statusDot}></span>
             {value}
           </span>
         )
       } else {
         return (
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 border border-gray-200 dark:border-gray-700">
-            <span className="w-1.5 h-1.5 bg-gray-400 dark:bg-gray-500 rounded-full mr-1.5"></span>
+          <span className={`${styles.statusBadge} ${styles.roleDefault}`}>
+            <span className={styles.statusDot}></span>
             {value}
           </span>
         )
@@ -175,18 +176,18 @@ export function DataTable({
     // Special rendering for actions
     if (column.key === "actions") {
       return (
-        <div className="flex space-x-2">
-          <Button variant="outline" size="sm" className="h-8 px-3 text-xs">
+        <div className={styles.actionsContainer}>
+          <Button variant="outline" size="sm" className={styles.actionButton}>
             Edit
           </Button>
-          <Button variant="outline" size="sm" className="h-8 px-3 text-xs text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 hover:bg-red-50 dark:hover:bg-red-900/20">
+          <Button variant="outline" size="sm" className={`${styles.actionButton} ${styles.deleteButton}`}>
             Delete
           </Button>
         </div>
       )
     }
     
-    return <span className="text-gray-900 dark:text-gray-100">{value}</span>
+    return <span className={styles.cellContent}>{value}</span>
   }
 
   const renderSortIcon = (key: string) => {
@@ -194,35 +195,35 @@ export function DataTable({
     
     if (sortConfig?.key === key) {
       return sortConfig.direction === 'asc' ? (
-        <ArrowUp className="h-4 w-4 ml-1" />
+        <ArrowUp className={styles.sortIcon} />
       ) : (
-        <ArrowDown className="h-4 w-4 ml-1" />
+        <ArrowDown className={styles.sortIcon} />
       )
     }
-    return <ArrowUpDown className="h-4 w-4 ml-1 text-gray-400" />
+    return <ArrowUpDown className={`${styles.sortIcon} ${styles.sortIconInactive}`} />
   }
 
   return (
-    <div className="w-full">
+    <div className={styles.container}>
       {/* Header with title and search */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4 sm:mb-6">
+      <div className={styles.header}>
         {title && (
-          <div className="flex-1">
-            <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-gray-100">{title}</h3>
-            <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-1">
+          <div className={styles.titleSection}>
+            <h3 className={styles.title}>{title}</h3>
+            <p className={styles.subtitle}>
               Showing {filteredData.length} of {data.length} total records
             </p>
           </div>
         )}
         
         {searchable && (
-          <div className="relative w-full sm:w-auto sm:max-w-sm">
-            <Search className="absolute left-2 sm:left-3 top-2 sm:top-2.5 h-4 w-4 text-gray-400 dark:text-gray-500" />
+          <div className={styles.searchContainer}>
+            <Search className={styles.searchIcon} />
             <Input
               placeholder="Search..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-8 sm:pl-10 h-9 sm:h-10 rounded-lg sm:rounded-xl border-gray-200 dark:border-gray-700 focus:border-blue-500 focus:ring-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 w-full text-sm sm:text-base touch-target"
+              className={styles.searchInput}
             />
           </div>
         )}
@@ -230,13 +231,13 @@ export function DataTable({
 
       {/* Filters */}
       {filterable && (
-        <div className="mb-4 sm:mb-6">
-          <div className="flex flex-wrap gap-2">
+        <div className={styles.filtersContainer}>
+          <div className={styles.filtersWrapper}>
             <Button
               variant={activeFilter === 'all' ? 'default' : 'outline'}
               size="sm"
               onClick={() => setActiveFilter('all')}
-              className="text-xs sm:text-sm h-8 sm:h-9 px-2 sm:px-3 touch-target"
+              className={styles.filterButton}
             >
               All ({data.length})
             </Button>
@@ -244,7 +245,7 @@ export function DataTable({
               variant={activeFilter === 'active' ? 'default' : 'outline'}
               size="sm"
               onClick={() => setActiveFilter('active')}
-              className="text-xs sm:text-sm h-8 sm:h-9 px-2 sm:px-3 touch-target"
+              className={styles.filterButton}
             >
               Active ({data.filter(item => item.status === 'active').length})
             </Button>
@@ -252,7 +253,7 @@ export function DataTable({
               variant={activeFilter === 'inactive' ? 'default' : 'outline'}
               size="sm"
               onClick={() => setActiveFilter('inactive')}
-              className="text-xs sm:text-sm h-8 sm:h-9 px-2 sm:px-3 touch-target"
+              className={styles.filterButton}
             >
               Inactive ({data.filter(item => item.status === 'inactive').length})
             </Button>
@@ -261,16 +262,16 @@ export function DataTable({
       )}
 
       {/* Mobile Card View */}
-      <div className="block sm:hidden space-y-3">
+      <div className={styles.mobileView}>
         {currentData.length > 0 ? (
           currentData.map((row, index) => (
-            <div key={index} className="bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 p-4 space-y-3">
+            <div key={index} className={styles.mobileCard}>
               {columns.map((column) => (
-                <div key={column.key} className="flex items-center justify-between">
-                  <span className="text-sm font-medium text-gray-600 dark:text-gray-400 capitalize">
+                <div key={column.key} className={styles.mobileCardRow}>
+                  <span className={styles.mobileCardLabel}>
                     {column.label}:
                   </span>
-                  <div className="text-sm text-gray-900 dark:text-gray-100 text-right">
+                  <div className={styles.mobileCardValue}>
                     {renderCell(row, column)}
                   </div>
                 </div>
@@ -278,30 +279,30 @@ export function DataTable({
             </div>
           ))
         ) : (
-          <div className="text-center py-8 text-gray-500 dark:text-gray-400">
+          <div className={styles.noDataMessage}>
             No data found
           </div>
         )}
       </div>
 
       {/* Desktop Table View */}
-      <div className="hidden sm:block rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 overflow-hidden shadow-sm">
-        <div className="overflow-x-auto mobile-table-responsive">
+      <div className={styles.desktopView}>
+        <div className={styles.tableWrapper}>
           <Table>
             <TableHeader>
-              <TableRow className="bg-gray-50 dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800">
+              <TableRow className={styles.tableHeaderRow}>
                 {columns.map((column) => (
                   <TableHead 
                     key={column.key} 
-                    className={`text-gray-700 dark:text-gray-300 font-semibold py-3 sm:py-4 px-3 sm:px-6 text-xs sm:text-sm ${column.width || ''}`}
+                    className={styles.tableHead}
                     style={{ width: column.width }}
                   >
-                    <div className="flex items-center gap-1">
+                    <div className={styles.tableHeadContent}>
                       {column.label}
                       {sortable && (
                         <button
                           onClick={() => handleSort(column.key)}
-                          className="hover:text-gray-900 dark:hover:text-gray-100 transition-colors touch-target"
+                          className={styles.sortButton}
                         >
                           {renderSortIcon(column.key)}
                         </button>
@@ -314,9 +315,9 @@ export function DataTable({
             <TableBody>
               {currentData.length > 0 ? (
                 currentData.map((row, index) => (
-                  <TableRow key={index} className="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                  <TableRow key={index} className={styles.tableRow}>
                     {columns.map((column) => (
-                      <TableCell key={column.key} className="py-3 sm:py-4 px-3 sm:px-6">
+                      <TableCell key={column.key} className={styles.tableCell}>
                         {renderCell(row, column)}
                       </TableCell>
                     ))}
@@ -324,7 +325,7 @@ export function DataTable({
                 ))
               ) : (
                 <TableRow>
-                  <TableCell colSpan={columns.length} className="py-8 text-center text-gray-500 dark:text-gray-400">
+                  <TableCell colSpan={columns.length} className={styles.noDataMessage}>
                     No data found
                   </TableCell>
                 </TableRow>
@@ -336,17 +337,17 @@ export function DataTable({
 
       {/* Pagination */}
       {pagination && (
-        <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+        <div className={styles.paginationContainer}>
+          <div className={styles.paginationInfo}>
             <span>Showing {startIndex + 1} to {endIndex} of {filteredData.length} results</span>
           </div>
           
-          <div className="flex items-center gap-2">
+          <div className={styles.paginationControls}>
             {showPageSizeSelector && (
-              <div className="flex items-center gap-2">
-                <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Show:</span>
+              <div className={styles.pageSizeSelector}>
+                <span className={styles.pageSizeLabel}>Show:</span>
                 <Select value={pageSize.toString()} onValueChange={(value) => setPageSize(Number(value))}>
-                  <SelectTrigger className="w-16 sm:w-20 h-8 sm:h-9">
+                  <SelectTrigger className={styles.pageSizeSelect}>
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
@@ -359,22 +360,22 @@ export function DataTable({
               </div>
             )}
             
-            <div className="flex items-center gap-1">
+            <div className={styles.paginationButtons}>
               <Button
                 variant="outline"
                 size="sm"
                 onClick={() => setCurrentPage(currentPage - 1)}
                 disabled={currentPage === 1}
-                className="h-8 w-8 sm:h-9 sm:w-9 p-0 touch-target"
+                className={styles.paginationButton}
               >
                 <ChevronLeft className="h-4 w-4" />
               </Button>
               
               {/* This part of the pagination logic needs to be implemented */}
               {/* For now, it will just show the current page and total pages */}
-              <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 px-2 sm:px-3">
-                Page <span className="font-medium text-gray-900 dark:text-gray-100">{currentPage}</span> of{" "}
-                <span className="font-medium text-gray-900 dark:text-gray-100">{totalPages}</span>
+              <div className={styles.paginationInfoText}>
+                Page <span className={styles.paginationPageNumber}>{currentPage}</span> of{" "}
+                <span className={styles.paginationPageNumber}>{totalPages}</span>
               </div>
               
               <Button
@@ -382,7 +383,7 @@ export function DataTable({
                 size="sm"
                 onClick={() => setCurrentPage(currentPage + 1)}
                 disabled={currentPage === totalPages}
-                className="h-8 w-8 sm:h-9 sm:w-9 p-0 touch-target"
+                className={styles.paginationButton}
               >
                 <ChevronRight className="h-4 w-4" />
               </Button>

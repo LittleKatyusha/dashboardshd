@@ -1,0 +1,674 @@
+/* Data Table Component Styles */
+
+.container {
+  width: 100%;
+}
+
+/* Header Section */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 640px) {
+  .header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.titleSection {
+  flex: 1;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgb(17 24 29);
+}
+
+@media (min-width: 640px) {
+  .title {
+    font-size: 1.125rem;
+  }
+}
+
+:global(.dark) .title {
+  color: rgb(243 244 246);
+}
+
+.subtitle {
+  font-size: 0.75rem;
+  color: rgb(75 85 99);
+  margin-top: 0.25rem;
+}
+
+@media (min-width: 640px) {
+  .subtitle {
+    font-size: 0.875rem;
+  }
+}
+
+:global(.dark) .subtitle {
+  color: rgb(156 163 175);
+}
+
+/* Search Section */
+.searchContainer {
+  position: relative;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .searchContainer {
+    width: auto;
+    max-width: 24rem;
+  }
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+  height: 1rem;
+  width: 1rem;
+  color: rgb(156 163 175);
+}
+
+@media (min-width: 640px) {
+  .searchIcon {
+    left: 0.75rem;
+    top: 0.625rem;
+  }
+}
+
+:global(.dark) .searchIcon {
+  color: rgb(107 114 128);
+}
+
+.searchInput {
+  padding-left: 2rem;
+  height: 2.25rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(229 231 235);
+  background-color: white;
+  color: rgb(17 24 29);
+  width: 100%;
+  font-size: 0.875rem;
+  min-height: 44px;
+}
+
+.searchInput:focus {
+  border-color: rgb(59 130 246);
+  box-shadow: 0 0 0 1px rgb(59 130 246);
+}
+
+@media (min-width: 640px) {
+  .searchInput {
+    padding-left: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+  }
+}
+
+:global(.dark) .searchInput {
+  border-color: rgb(55 65 81);
+  background-color: rgb(31 41 55);
+  color: rgb(243 244 246);
+}
+
+/* Filters Section */
+.filtersContainer {
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 640px) {
+  .filtersContainer {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.filtersWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filterButton {
+  font-size: 0.75rem;
+  height: 2rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  min-height: 44px;
+}
+
+@media (min-width: 640px) {
+  .filterButton {
+    font-size: 0.875rem;
+    height: 2.25rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
+
+/* Mobile Card View */
+.mobileView {
+  display: block;
+  space-y: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .mobileView {
+    display: none;
+  }
+}
+
+.mobileCard {
+  background-color: white;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(229 231 235);
+  padding: 1rem;
+  space-y: 0.75rem;
+}
+
+:global(.dark) .mobileCard {
+  background-color: rgb(17 24 39);
+  border-color: rgb(55 65 81);
+}
+
+.mobileCardRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobileCardLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgb(75 85 99);
+  text-transform: capitalize;
+}
+
+:global(.dark) .mobileCardLabel {
+  color: rgb(156 163 175);
+}
+
+.mobileCardValue {
+  font-size: 0.875rem;
+  color: rgb(17 24 29);
+  text-align: right;
+}
+
+:global(.dark) .mobileCardValue {
+  color: rgb(243 244 246);
+}
+
+.noDataMessage {
+  text-align: center;
+  padding: 2rem 0;
+  color: rgb(107 114 128);
+}
+
+:global(.dark) .noDataMessage {
+  color: rgb(156 163 175);
+}
+
+/* Desktop Table View */
+.desktopView {
+  display: none;
+  border-radius: 0.75rem;
+  border: 1px solid rgb(229 231 235);
+  background-color: white;
+  overflow: hidden;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+@media (min-width: 640px) {
+  .desktopView {
+    display: block;
+  }
+}
+
+:global(.dark) .desktopView {
+  background-color: rgb(17 24 39);
+  border-color: rgb(55 65 81);
+}
+
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.tableHeaderRow {
+  background-color: rgb(249 250 251);
+}
+
+.tableHeaderRow:hover {
+  background-color: rgb(249 250 251);
+}
+
+:global(.dark) .tableHeaderRow {
+  background-color: rgb(31 41 55);
+}
+
+:global(.dark) .tableHeaderRow:hover {
+  background-color: rgb(31 41 55);
+}
+
+.tableHead {
+  color: rgb(55 65 81);
+  font-weight: 600;
+  padding: 0.75rem 0.75rem;
+  font-size: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .tableHead {
+    padding: 1rem 1.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+:global(.dark) .tableHead {
+  color: rgb(209 213 219);
+}
+
+.tableHeadContent {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.sortButton {
+  transition: color 0.2s ease;
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.sortButton:hover {
+  color: rgb(17 24 29);
+}
+
+:global(.dark) .sortButton:hover {
+  color: rgb(243 244 246);
+}
+
+.tableRow {
+  transition: background-color 0.2s ease;
+}
+
+.tableRow:hover {
+  background-color: rgb(249 250 251);
+}
+
+:global(.dark) .tableRow:hover {
+  background-color: rgba(31, 41, 55, 0.5);
+}
+
+.tableCell {
+  padding: 0.75rem 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .tableCell {
+    padding: 1rem 1.5rem;
+  }
+}
+
+/* Status Badges */
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid;
+}
+
+.statusDot {
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 50%;
+  margin-right: 0.375rem;
+}
+
+/* Status Colors */
+.statusCompleted,
+.statusActive,
+.statusInStock {
+  background-color: rgb(220 252 231);
+  color: rgb(22 101 52);
+  border-color: rgb(187 247 208);
+}
+
+:global(.dark) .statusCompleted,
+:global(.dark) .statusActive,
+:global(.dark) .statusInStock {
+  background-color: rgba(34, 197, 94, 0.1);
+  color: rgb(134 239 172);
+  border-color: rgb(22 163 74);
+}
+
+.statusCompleted .statusDot,
+.statusActive .statusDot,
+.statusInStock .statusDot {
+  background-color: rgb(74 222 128);
+}
+
+:global(.dark) .statusCompleted .statusDot,
+:global(.dark) .statusActive .statusDot,
+:global(.dark) .statusInStock .statusDot {
+  background-color: rgb(134 239 172);
+}
+
+.statusPending,
+.statusLowStock {
+  background-color: rgb(254 249 195);
+  color: rgb(133 77 14);
+  border-color: rgb(253 224 71);
+}
+
+:global(.dark) .statusPending,
+:global(.dark) .statusLowStock {
+  background-color: rgba(234, 179, 8, 0.1);
+  color: rgb(253 224 71);
+  border-color: rgb(234 179 8);
+}
+
+.statusPending .statusDot,
+.statusLowStock .statusDot {
+  background-color: rgb(250 204 21);
+}
+
+:global(.dark) .statusPending .statusDot,
+:global(.dark) .statusLowStock .statusDot {
+  background-color: rgb(253 224 71);
+}
+
+.statusShipped {
+  background-color: rgb(219 234 254);
+  color: rgb(30 64 175);
+  border-color: rgb(147 197 253);
+}
+
+:global(.dark) .statusShipped {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: rgb(147 197 253);
+  border-color: rgb(59 130 246);
+}
+
+.statusShipped .statusDot {
+  background-color: rgb(96 165 250);
+}
+
+:global(.dark) .statusShipped .statusDot {
+  background-color: rgb(147 197 253);
+}
+
+.statusCancelled,
+.statusInactive,
+.statusOutOfStock {
+  background-color: rgb(254 226 226);
+  color: rgb(153 27 27);
+  border-color: rgb(252 165 165);
+}
+
+:global(.dark) .statusCancelled,
+:global(.dark) .statusInactive,
+:global(.dark) .statusOutOfStock {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: rgb(252 165 165);
+  border-color: rgb(239 68 68);
+}
+
+.statusCancelled .statusDot,
+.statusInactive .statusDot,
+.statusOutOfStock .statusDot {
+  background-color: rgb(248 113 113);
+}
+
+:global(.dark) .statusCancelled .statusDot,
+:global(.dark) .statusInactive .statusDot,
+:global(.dark) .statusOutOfStock .statusDot {
+  background-color: rgb(252 165 165);
+}
+
+/* Role Badges */
+.roleAdmin {
+  background-color: rgb(254 226 226);
+  color: rgb(153 27 27);
+  border-color: rgb(252 165 165);
+}
+
+:global(.dark) .roleAdmin {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: rgb(252 165 165);
+  border-color: rgb(239 68 68);
+}
+
+.roleAdmin .statusDot {
+  background-color: rgb(248 113 113);
+}
+
+:global(.dark) .roleAdmin .statusDot {
+  background-color: rgb(252 165 165);
+}
+
+.roleModerator {
+  background-color: rgb(219 234 254);
+  color: rgb(30 64 175);
+  border-color: rgb(147 197 253);
+}
+
+:global(.dark) .roleModerator {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: rgb(147 197 253);
+  border-color: rgb(59 130 246);
+}
+
+.roleModerator .statusDot {
+  background-color: rgb(96 165 250);
+}
+
+:global(.dark) .roleModerator .statusDot {
+  background-color: rgb(147 197 253);
+}
+
+.roleDefault {
+  background-color: rgb(243 244 246);
+  color: rgb(31 41 55);
+  border-color: rgb(229 231 235);
+}
+
+:global(.dark) .roleDefault {
+  background-color: rgb(31 41 55);
+  color: rgb(209 213 219);
+  border-color: rgb(55 65 81);
+}
+
+.roleDefault .statusDot {
+  background-color: rgb(156 163 175);
+}
+
+:global(.dark) .roleDefault .statusDot {
+  background-color: rgb(107 114 128);
+}
+
+/* Actions */
+.actionsContainer {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.actionButton {
+  height: 2rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  font-size: 0.75rem;
+}
+
+.deleteButton {
+  color: rgb(220 38 38);
+}
+
+.deleteButton:hover {
+  color: rgb(185 28 28);
+  background-color: rgb(254 242 242);
+}
+
+:global(.dark) .deleteButton {
+  color: rgb(248 113 113);
+}
+
+:global(.dark) .deleteButton:hover {
+  color: rgb(252 165 165);
+  background-color: rgba(220, 38, 38, 0.1);
+}
+
+/* Cell Content */
+.cellContent {
+  color: rgb(17 24 29);
+}
+
+:global(.dark) .cellContent {
+  color: rgb(243 244 246);
+}
+
+/* Sort Icons */
+.sortIcon {
+  height: 1rem;
+  width: 1rem;
+  margin-left: 0.25rem;
+}
+
+.sortIconInactive {
+  color: rgb(156 163 175);
+}
+
+/* Pagination */
+.paginationContainer {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .paginationContainer {
+    margin-top: 1.5rem;
+    flex-direction: row;
+  }
+}
+
+.paginationInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: rgb(75 85 99);
+}
+
+@media (min-width: 640px) {
+  .paginationInfo {
+    font-size: 0.875rem;
+  }
+}
+
+:global(.dark) .paginationInfo {
+  color: rgb(156 163 175);
+}
+
+.paginationControls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pageSizeSelector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pageSizeLabel {
+  font-size: 0.75rem;
+  color: rgb(75 85 99);
+}
+
+@media (min-width: 640px) {
+  .pageSizeLabel {
+    font-size: 0.875rem;
+  }
+}
+
+:global(.dark) .pageSizeLabel {
+  color: rgb(156 163 175);
+}
+
+.pageSizeSelect {
+  width: 4rem;
+  height: 2rem;
+}
+
+@media (min-width: 640px) {
+  .pageSizeSelect {
+    width: 5rem;
+    height: 2.25rem;
+  }
+}
+
+.paginationButtons {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.paginationButton {
+  height: 2rem;
+  width: 2rem;
+  padding: 0;
+  min-height: 44px;
+  min-width: 44px;
+}
+
+@media (min-width: 640px) {
+  .paginationButton {
+    height: 2.25rem;
+    width: 2.25rem;
+  }
+}
+
+.paginationInfoText {
+  font-size: 0.75rem;
+  color: rgb(75 85 99);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .paginationInfoText {
+    font-size: 0.875rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
+
+:global(.dark) .paginationInfoText {
+  color: rgb(156 163 175);
+}
+
+.paginationPageNumber {
+  font-weight: 500;
+  color: rgb(17 24 29);
+}
+
+:global(.dark) .paginationPageNumber {
+  color: rgb(243 244 246);
+}

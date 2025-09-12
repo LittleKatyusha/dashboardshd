@@ -1,0 +1,351 @@
+/* Login Page Styles */
+
+.container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, rgb(248 250 252), rgb(239 246 255), rgb(224 231 255));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  position: relative;
+}
+
+:global(.dark) .container {
+  background: linear-gradient(to bottom right, rgb(15 23 42), rgb(30 41 59), rgb(15 23 42));
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+  z-index: 10;
+}
+
+/* Logo Section */
+.logoSection {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logoContainer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(135deg, rgb(59 130 246), rgb(99 102 241));
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3);
+}
+
+.logoIcon {
+  color: white;
+  width: 2rem;
+  height: 2rem;
+}
+
+.brandTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, rgb(59 130 246), rgb(99 102 241));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.brandSubtitle {
+  color: rgb(107 114 128);
+  font-size: 1rem;
+}
+
+:global(.dark) .brandSubtitle {
+  color: rgb(156 163 175);
+}
+
+/* Login Card */
+.loginCard {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: 2rem;
+}
+
+:global(.dark) .loginCard {
+  background-color: rgba(17, 24, 39, 0.95);
+  border-color: rgba(55, 65, 81, 0.3);
+}
+
+.cardHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgb(17 24 29);
+  margin-bottom: 0.5rem;
+}
+
+:global(.dark) .cardTitle {
+  color: rgb(243 244 246);
+}
+
+.cardDescription {
+  color: rgb(107 114 128);
+  font-size: 0.875rem;
+}
+
+:global(.dark) .cardDescription {
+  color: rgb(156 163 175);
+}
+
+/* Form */
+.form {
+  space-y: 1.5rem;
+}
+
+.formGroup {
+  space-y: 0.5rem;
+}
+
+.formLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgb(55 65 81);
+}
+
+:global(.dark) .formLabel {
+  color: rgb(209 213 219);
+}
+
+.inputContainer {
+  position: relative;
+}
+
+.formInput {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  padding-right: 2.5rem;
+  border: 1px solid rgb(209 213 219);
+  border-radius: 0.5rem;
+  background-color: white;
+  color: rgb(17 24 29);
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.formInput:focus {
+  outline: none;
+  border-color: rgb(59 130 246);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+:global(.dark) .formInput {
+  background-color: rgb(31 41 55);
+  border-color: rgb(55 65 81);
+  color: rgb(243 244 246);
+}
+
+:global(.dark) .formInput:focus {
+  border-color: rgb(59 130 246);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.inputIcon {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgb(107 114 128);
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.inputIcon:hover {
+  color: rgb(75 85 99);
+}
+
+:global(.dark) .inputIcon {
+  color: rgb(156 163 175);
+}
+
+:global(.dark) .inputIcon:hover {
+  color: rgb(209 213 219);
+}
+
+/* Password Toggle */
+.passwordToggle {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgb(107 114 128);
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.passwordToggle:hover {
+  color: rgb(75 85 99);
+}
+
+:global(.dark) .passwordToggle {
+  color: rgb(156 163 175);
+}
+
+:global(.dark) .passwordToggle:hover {
+  color: rgb(209 213 219);
+}
+
+/* Submit Button */
+.submitButton {
+  width: 100%;
+  background: linear-gradient(135deg, rgb(59 130 246), rgb(99 102 241));
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgb(37 99 235), rgb(79 70 229));
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4);
+}
+
+.submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.submitButtonIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.submitButtonIcon.loading {
+  animation: spin 1s linear infinite;
+}
+
+/* Demo Credentials */
+.demoSection {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: rgb(249 250 251);
+  border-radius: 0.5rem;
+  border: 1px solid rgb(229 231 235);
+}
+
+:global(.dark) .demoSection {
+  background-color: rgb(31 41 55);
+  border-color: rgb(55 65 81);
+}
+
+.demoTitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgb(55 65 81);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+:global(.dark) .demoTitle {
+  color: rgb(209 213 219);
+}
+
+.demoCredentials {
+  font-size: 0.75rem;
+  color: rgb(107 114 128);
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+:global(.dark) .demoCredentials {
+  color: rgb(156 163 175);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgb(229 231 235);
+}
+
+:global(.dark) .footer {
+  border-top-color: rgb(55 65 81);
+}
+
+.footerText {
+  color: rgb(107 114 128);
+  font-size: 0.75rem;
+}
+
+:global(.dark) .footerText {
+  color: rgb(156 163 175);
+}
+
+.footerLink {
+  color: rgb(59 130 246);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footerLink:hover {
+  color: rgb(37 99 235);
+}
+
+:global(.dark) .footerLink {
+  color: rgb(96 165 250);
+}
+
+:global(.dark) .footerLink:hover {
+  color: rgb(147 197 253);
+}
+
+/* Animations */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .container {
+    padding: 0.5rem;
+  }
+  
+  .loginCard {
+    padding: 1.5rem;
+  }
+  
+  .brandTitle {
+    font-size: 1.5rem;
+  }
+  
+  .cardTitle {
+    font-size: 1.25rem;
+  }
+}

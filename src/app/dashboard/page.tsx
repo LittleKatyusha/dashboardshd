@@ -14,6 +14,7 @@ import {
   ArrowUpRight,
   Activity
 } from "lucide-react"
+import styles from "@/styles/pages/dashboard.module.css"
 
 // Mock data untuk demo
 const salesData = [
@@ -82,21 +83,21 @@ export default function DashboardPage() {
     <DashboardLayout>
       <div className="space-y-4 sm:space-y-6 md:space-y-8">
         {/* Header Section */}
-        <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 p-4 sm:p-6 md:p-8 text-white">
-          <div className="relative z-10">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-2 sm:mb-2">
+        <div className={styles.heroSection}>
+          <div className={styles.heroContent}>
+            <h1 className={styles.heroTitle}>
               Welcome back, Admin! 👋
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-blue-100 max-w-2xl">
+            <p className={styles.heroSubtitle}>
               Here&apos;s what&apos;s happening with your business today. Monitor your key metrics and stay on top of everything.
             </p>
           </div>
-          <div className="absolute top-0 right-0 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 bg-white/10 rounded-full blur-2xl sm:blur-3xl"></div>
+          <div className={styles.heroDecoration}></div>
           <div className="absolute bottom-0 left-0 w-24 h-24 sm:w-32 sm:h-32 bg-white/10 rounded-full blur-xl sm:blur-2xl"></div>
         </div>
 
         {/* Stats Cards */}
-        <div className="grid gap-4 sm:gap-6 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+        <div className={styles.statsGrid}>
           <StatsCard
             title="Total Users"
             value="2,543"

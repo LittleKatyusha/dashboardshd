@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/contexts/theme-context";
+import { ThemeProvider } from "next-themes";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,29 +15,35 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ShadnAdmin - Beautiful Modern Admin Dashboard",
-  description: "Powerful, beautiful, and intuitive admin dashboard built with Next.js and Tailwind CSS. Manage your business with style and efficiency.",
-  keywords: ["admin dashboard", "next.js", "tailwind css", "modern ui", "business management", "mobile responsive"],
+  title: "ShadnAdmin Dashboard",
+  description: "Modern admin dashboard for business management and analytics.",
+  keywords: ["admin dashboard", "next.js", "tailwind css", "modern ui", "business management", "analytics"],
   authors: [{ name: "ShadnAdmin Team" }],
   creator: "ShadnAdmin",
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-    userScalable: true,
-    viewportFit: 'cover',
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
   },
   openGraph: {
-    title: "ShadnAdmin - Beautiful Modern Admin Dashboard",
-    description: "Powerful, beautiful, and intuitive admin dashboard built with Next.js and Tailwind CSS.",
+    title: "ShadnAdmin Dashboard",
+    description: "Modern admin dashboard for business management and analytics.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ShadnAdmin - Beautiful Modern Admin Dashboard",
-    description: "Powerful, beautiful, and intuitive admin dashboard built with Next.js and Tailwind CSS.",
+    title: "ShadnAdmin Dashboard",
+    description: "Modern admin dashboard for business management and analytics.",
   },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  viewportFit: 'cover',
 };
 
 export default function RootLayout({
@@ -49,8 +56,19 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           {children}
+          <Toaster 
+            position="top-right"
+            expand={true}
+            richColors={true}
+            closeButton={true}
+          />
         </ThemeProvider>
       </body>
     </html>
